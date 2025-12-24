@@ -47,12 +47,6 @@ Codeforces/
 │ ├── C/
 │
 └── README.md
-
-yaml
-Copy code
-
-*(Structure may evolve as I solve more problems)*
-
 ---
 
 ## 🎯 Goals
