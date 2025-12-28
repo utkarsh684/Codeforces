@@ -2,37 +2,41 @@ package Rated_1000_questions;
 
 import java.util.*;
 import java.io.*;
-public class MoveBrackets {
+public class JohnnyAndAncientComputer {
 
     public static void main(String args[]) throws IOException{
         FastScanner fs = new FastScanner();
         int t = fs.nextInt();
         while(t-->0){
-            int n = fs.nextInt();
-            String s = fs.next();
+            long a = fs.nextLong();
+            long b = fs.nextLong();
 
-            long sum = 0;
-            long ops = 0;
+            long odda = a;
+            long oddb = b;
 
-            for(char ch : s.toCharArray()){
-                if(ch == ')'){
-                    sum--;
-                } else{
-                    sum++;
-                }
-
-                if(sum<0){
-                    ops++;
-                    sum = 0;
-                }
+            while(odda%2==0){
+                odda/=2;
+            }
+            while(oddb%2==0){
+                oddb/=2;
             }
 
-            System.out.println(ops);
-        }
+            if(odda != oddb){
+                System.out.println(-1);
+            } else{
+                a/=odda;
+                b/=oddb;
 
+                a = (long) (Math.log(a)/Math.log(2));
+                b = (long) (Math.log(b)/Math.log(2));
+
+                long ans = (long) Math.ceil(Math.abs(a - b) / 3.0);
+                System.out.println(ans);
+            }
+        }
     }
     private static final class FastScanner {
-        private final byte[] buffer = new byte[1 << 16]; // 64 KB buffer
+        private final byte[] buffer = new byte[1 << 16];
         private int ptr = 0, len = 0;
 
         private int readByte() throws IOException {
@@ -85,5 +89,4 @@ public class MoveBrackets {
             return sb.toString();
         }
     }
-
 }
