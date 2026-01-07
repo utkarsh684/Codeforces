@@ -11,8 +11,8 @@ public class EraseFirstOrSecondLetter {
             int n = fs.nextInt();
             String s = fs.next();
             Set<Character> set = new HashSet<>();
-            int count = 0;
-            int ans = 0;
+            long count = 0;
+            long ans = 0;
 
             for(int i=0;i<s.length();i++){
                 if(!set.contains(s.charAt(i))){
