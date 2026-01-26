@@ -9,13 +9,29 @@ public class MaximumSum {
         int t = fs.nextInt();
         while(t-->0){
             int n = fs.nextInt();
-            long k = fs.nextLong();
+            int k = fs.nextInt();
 
             long[] nums = new long[n];
             for(int i=0;i<n;i++){
                 nums[i] = fs.nextLong();
             }
 
+            Arrays.sort(nums);
+
+            long[] prefix = new long[n];
+            prefix[0] = nums[0];
+            for(int i=1;i<n;i++){
+                prefix[i] = nums[i] + prefix[i-1];
+            }
+            long ans = Long.MIN_VALUE;
+            for(int i=0;i<=k;i++){
+                int j = k-i;
+                int left = 2*i;
+                int right = (n-j-1);
+                long curr = prefix[right] - (left == 0 ? 0 : prefix[left-1]);
+                ans = Math.max(ans, curr);
+            }
+            System.out.println(ans);
         }
     }
 
