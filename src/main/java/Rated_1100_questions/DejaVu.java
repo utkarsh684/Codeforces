@@ -1,52 +1,46 @@
 package Rated_1100_questions;
 
-
-import java.io.IOException;
-import java.io.InputStream;
+import java.util.Scanner;
 
 public class DejaVu {
 
     public static void main(String args[]){
-        FastScanner fs = new FastScanner();
+        Scanner fs = new Scanner(System.in);
 
-    }
+        int t = fs.nextInt();
+        while(t-->0){
+            int n = fs.nextInt();
+            int q = fs.nextInt();
+            long[] a = new long[n];
+            long[] x = new long[q];
 
-    static class FastScanner {
-        private final byte[] buffer = new byte[1 << 16];
-        private int ptr = 0, len = 0;
-        private final InputStream in = System.in;
-
-        private int readByte() throws IOException {
-            if (ptr >= len) {
-                len = in.read(buffer);
-                ptr = 0;
-                if (len <= 0) return -1;
-            }
-            return buffer[ptr++];
-        }
-
-        long nextLong() throws IOException {
-            int c;
-            do {
-                c = readByte();
-            } while (c <= ' ');
-
-            boolean neg = false;
-            if (c == '-') {
-                neg = true;
-                c = readByte();
+            for(int i=0;i<n;i++){
+                a[i] = fs.nextLong();
             }
 
-            long val = 0;
-            while (c > ' ') {
-                val = val * 10 + (c - '0');
-                c = readByte();
+            for(int i=0;i<q;i++){
+                x[i] = fs.nextLong();
             }
-            return neg ? -val : val;
-        }
 
-        int nextInt() throws IOException {
-            return (int) nextLong();
+            long prev = 31;
+            for(int i=0;i<q;i++){
+                if(x[i]>=prev) continue;
+
+                long val = (long) Math.pow(2, x[i]);
+                for(int j=0;j<n;j++){
+                    if(a[j]%val == 0){
+                        a[j] += (val/2);
+                    }
+                }
+
+                prev = x[i];
+            }
+
+            for(int i=0;i<n;i++){
+                System.out.print(a[i]+" ");
+            }
+            System.out.println();
         }
     }
+
 }
