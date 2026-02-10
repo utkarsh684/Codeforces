@@ -1,4 +1,4 @@
-package Ratde_1200_questions;
+package Rated_1200_questions;
 
 import java.util.*;
 public class ContrastValue {
