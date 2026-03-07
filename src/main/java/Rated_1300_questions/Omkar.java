@@ -13,7 +13,7 @@ public class Omkar {
             for(long i = 2;i*i <= n;i++){
                 if(n%i == 0){
                     long fr = n/i;
-                    long sec = n-i;
+                    long sec = n-fr;
                     System.out.println(fr +" "+sec);
                     found = true;
                     break;
