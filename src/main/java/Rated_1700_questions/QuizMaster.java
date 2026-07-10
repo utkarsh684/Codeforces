@@ -1,4 +1,4 @@
-package Rated_1400_questions;
+package Rated_1700_questions;
 
 import java.util.*;
 public class QuizMaster {
