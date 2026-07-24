@@ -15,6 +15,7 @@ public class SmiloandMonsters {
             }
             long rem = sum/2;
             long ans = sum - rem;
+            Arrays.sort(a);
             for(int i=n-1;i>=0 && rem>0; i--){
                 rem -= a[i];
                 ans++;
